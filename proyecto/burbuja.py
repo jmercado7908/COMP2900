@@ -12,7 +12,7 @@ def bubble_sort(arr):
             break
     return arr
 
-for caso in range(1, 4):
+for caso in range(1,4):
     archivo = 'promedio_caso'
     if (caso == 1):
         archivo = 'peor_caso'
@@ -22,16 +22,16 @@ for caso in range(1, 4):
     print('--------------------')
     print(f'** TIPO DE CASO {archivo}')
 
-for corridas in range(10000, 110000, 10000):
-    lista = []
-    f = open(f"{archivo}.dat", "r")
-    for n in f:
-        lista.append(n)
-    f.close()
+    for corridas in range(10000, 110000, 10000):
+        lista = []
+        f = open(f"{archivo}.dat", "r")
+        for n in f:
+            lista.append(n)
+        f.close()
 
-    del lista[corridas:] # 10000 elements (debe borrar 90000 elementos)
+        del lista[corridas:] # 10000 elements (debe borrar 90000 elementos)
 
-    print(f'Array: {len(lista)} elementos')
-    print(f'  Organizando {corridas} datos ... Favor esperar ...')
-    tiempo = timeit.timeit(lambda:bubble_sort(lista),number=1)
-    print(f'  Tiempo: {tiempo} segs')
+        print(f'Array: {len(lista)} elementos')
+        print(f'  Organizando {corridas} datos ... Favor esperar ...')
+        tiempo = timeit(lambda:bubble_sort(lista),number=1)
+        print(f'  Tiempo: {tiempo} segs')
