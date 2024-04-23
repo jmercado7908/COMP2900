@@ -14,7 +14,7 @@ def bubble_sort(arr):
 
 for corridas in range(10000, 110000, 10000):
     lista = []
-    f = open("peor_caso.dat", "r")
+    f = open("mejor_caso.dat", "r")
     for n in f:
         lista.append(n)
     f.close()
@@ -23,5 +23,5 @@ for corridas in range(10000, 110000, 10000):
 
     print(f'Array: {len(lista)} elementos')
     print(f'  Organizando {corridas} datos ... Favor esperar ...')
-    tiempo = timeit(lambda:bubble_sort(lista),number=1)
+    tiempo = timeit.timeit(lambda:bubble_sort(lista),number=1)
     print(f'  Tiempo: {tiempo} segs')
