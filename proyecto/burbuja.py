@@ -12,9 +12,19 @@ def bubble_sort(arr):
             break
     return arr
 
+for caso in range(1, 4):
+    archivo = 'promedio_caso'
+    if (caso == 1):
+        archivo = 'peor_caso'
+    elif (caso == 2):
+        archivo = 'mejor_caso'
+
+    print('--------------------')
+    print(f'** TIPO DE CASO {archivo}')
+
 for corridas in range(10000, 110000, 10000):
     lista = []
-    f = open("mejor_caso.dat", "r")
+    f = open(f"{archivo}.dat", "r")
     for n in f:
         lista.append(n)
     f.close()
