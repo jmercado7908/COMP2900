@@ -1,0 +1,30 @@
+import random
+import sys
+
+def generar_num_aleatorios(size, lower_bound, upper_bound):
+    return [random.randint(lower_bound, upper_bound) for _ in range(size)]
+
+def busqueda_secuencial(lista, objetivo):
+    for numero in lista:
+        if numero == objetivo:
+            return True
+    return False
+
+# Principal
+if __name__ == "__main__":
+    # Generar la lista de números aleatorios
+    numeros = generar_num_aleatorios(10, 1, 100)
+    print("Lista generada de números aleatorios:", numeros)
+
+    # Leer el número objetivo del usuario
+    try:
+        objetivo = int(input("Ingrese el número que desea buscar en la lista: "))
+    except ValueError:
+        print("Por favor, ingrese un número válido.")
+        sys.exit()
+    
+    # Realizar la busqueda secuencial
+    if busqueda_secuencial(numeros, objetivo):
+        print(f"El número {objetivo} está en la lista")
+    else:
+        print(f"El número {objetivo} no está en la lista.")
